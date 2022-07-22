@@ -1,36 +1,38 @@
 
 <!-- App.vue -->
 <template>
-  <div>
-    <v-app>
-      <v-system-bar></v-system-bar>
+  <v-app id="inspire">
+    <v-navigation-drawer v-model="drawer" app>
+      <v-list>
+        <v-list-item link>
+          <v-list-item-action>
+            <v-icon>mdi-home</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>Home</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+    </v-navigation-drawer>
 
-      <v-navigation-drawer app>
-        <!-- -->
-      </v-navigation-drawer>
+    <v-app-bar app color="primary">
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+      <v-toolbar-title>ケアレボ</v-toolbar-title>
+    </v-app-bar>
 
-      <v-app-bar app color="primary">
-        <v-app-bar-nav-icon> icon</v-app-bar-nav-icon>
-        <v-app-bar-title>
-          {{ title }}
-        </v-app-bar-title>
-      </v-app-bar>
-
-      <!-- アプリケーションのコンポーネントに基づいてコンテンツのサイズを決定 -->
-      <v-main>
-        <!-- アプリケーションに適切なgutterを提供 -->
-        <v-container fluid>
-          <!-- vue-routerを使用する場合 -->
-          <router-view></router-view>
-        </v-container>
-      </v-main>
-
-      <v-footer app>
-        <!-- -->
-      </v-footer>
-      <v-bottom-navigation> </v-bottom-navigation>
-    </v-app>
-  </div>
+    <v-main>
+      <v-container class="fill-height">
+        <v-row>
+          <v-col class="text-center">
+            <v-btn><v-icon large>mdi-code-tags</v-icon></v-btn>
+          </v-col>
+        </v-row>
+      </v-container>
+    </v-main>
+    <v-footer app>
+      <span>&copy; {{ new Date().getFullYear() }}</span>
+    </v-footer>
+  </v-app>
 </template>
 
 <script>
